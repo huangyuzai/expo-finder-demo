@@ -5,8 +5,9 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-
 import { useColorScheme } from '@/components/useColorScheme';
+
+import { NativeModules } from 'react-native';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -35,6 +36,9 @@ export default function RootLayout() {
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
+      NativeModules.RangersAppLogModule.setUserUniqueId('123456789');
+      NativeModules.RangersAppLogModule.profileSet({"os_name": "test"});
+      console.log(`火山引擎数据埋点 init ===>`, NativeModules.RangersAppLogModule)
     }
   }, [loaded]);
 
@@ -52,7 +56,6 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
   );

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "expo-tabs",
-    "slug": "expo-tabs",
+    "name": "expo-finder-demo",
+    "slug": "expo-finder-demo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.beixiyo.expofinderdemo"
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +32,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "e4a81ce1-c235-4cf6-883c-7da46d8c99a3"
+      }
     }
   }
 }
